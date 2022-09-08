@@ -1,0 +1,40 @@
+{
+  "name": "px-icons",
+  "version": "0.0.1-beta.1",
+  "main": "dist/vue/lib/index.js",
+  "module": "dist/vue/es/index.js",
+  "unpkg": "dist/vue/lib/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf packages/icons",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "gen": "yarn clean && node ./scripts/generate.js && yarn prettier",
+    "prettier": "prettier packages/* -w",
+    "build:packages": "sh ./scripts/build.sh",
+    "build:entry": "rollup --config ./build/rollup.index.js",
+    "build:all": "yarn build:packages && yarn build:entry"
+  },
+  "files": ["dist", "types"],
+  "dependencies": {
+    "vue": "^3.2.6"
+  },
+  "devDependencies": {
+    "@iconify/json": "^1.1.404",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@types/node": "^16.10.1",
+    "@vitejs/plugin-vue": "^1.6.1",
+    "@vue/compiler-sfc": "^3.2.6",
+    "fs-extra": "^10.0.0",
+    "lodash": "^4.17.21",
+    "prettier": "^2.4.1",
+    "rollup": "^2.57.0",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-esbuild": "^4.5.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.5.4",
+    "vue-tsc": "^0.2.2"
+  }
+}
